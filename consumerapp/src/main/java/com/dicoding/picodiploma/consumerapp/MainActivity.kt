@@ -1,21 +1,19 @@
-package com.dicoding.picodiploma.mynotesapp
+package com.dicoding.picodiploma.consumerapp
 
 import android.content.Intent
 import android.database.ContentObserver
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.picodiploma.mynotesapp.adapter.NoteAdapter
-import com.dicoding.picodiploma.mynotesapp.databinding.ActivityMainBinding
-import com.dicoding.picodiploma.mynotesapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
-import com.dicoding.picodiploma.mynotesapp.db.NoteHelper
-import com.dicoding.picodiploma.mynotesapp.entity.Note
-import com.dicoding.picodiploma.mynotesapp.helper.MappingHelper
+import com.dicoding.picodiploma.consumerapp.DatabaseContract.NoteColumns.Companion.CONTENT_URI
+import com.dicoding.picodiploma.consumerapp.adapter.NoteAdapter
+import com.dicoding.picodiploma.consumerapp.databinding.ActivityMainBinding
+import com.dicoding.picodiploma.consumerapp.entity.Note
+import com.dicoding.picodiploma.consumerapp.helper.MappingHelper
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -32,9 +30,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        supportActionBar?.title = "Notes"
-
+        supportActionBar?.title = "Consumer Notes"
         binding.rvNotes.layoutManager = LinearLayoutManager(this)
         binding.rvNotes.setHasFixedSize(true)
         adapter = NoteAdapter(this)
